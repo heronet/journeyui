@@ -1,0 +1,23 @@
+<div class="container">
+  <p class="intro">Sign in with your Connect ID</p>
+  <form class="form" #f="ngForm" (ngSubmit)="login(f)">
+    <input
+      class="email input-border"
+      type="email"
+      name="email"
+      ngModel
+      placeholder="Email"
+    />
+    <div class="password input-border">
+      <input type="password" name="password" ngModel placeholder="Password" />
+      <button class="btn" type="submit" [disabled]="isLoading">Login</button>
+    </div>
+  </form>
+  <p class="sub">
+    New to Connect? <a class="btn" routerLink="/auth/register">Register</a>
+  </p>
+  <div class="empty-loading" *ngIf="isLoading">Logging in...</div>
+  <div class="empty-loading error" *ngFor="let error of errors">
+    {{ error }}
+  </div>
+</div>
