@@ -1,1 +1,31 @@
-<p>hotels works!</p>
+<div class="container">
+  <div class="card">
+    <form class="form" #f="ngForm">
+      <input
+        class="search"
+        type="text"
+        name="location"
+        ngModel
+        placeholder="Where do you want to stay?"
+      />
+      <input
+        type="date"
+        name="date"
+        id="date"
+        ngModel
+        #date
+        (click)="date.showPicker()"
+      />
+      <label class="date-label" for="date" (click)="date.showPicker()"
+        >Select Day</label
+      >
+      <button class="btn" type="submit" (click)="searchHotels(f)">
+        Search
+      </button>
+    </form>
+  </div>
+  <p>Found {{ hotels.length }} hotels</p>
+  <div class="hotel-list">
+    <app-hotel *ngFor="let hotel of hotels" [hotel]="hotel"></app-hotel>
+  </div>
+</div>

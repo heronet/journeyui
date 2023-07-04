@@ -1,0 +1,21 @@
+.container {
+  border: 1px solid brown;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  width: 200px;
+}
+img {
+  max-width: 200px;
+  max-height: 200px;
+}
+.details {
+  background-color: brown;
+  padding: 10px;
+  display: flex;
+  color: wheat;
+}
+.details > * {
+  display: inline-block;
+}

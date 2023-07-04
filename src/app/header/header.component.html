@@ -4,9 +4,20 @@
   </div>
   <span style="flex: 1 1 auto"></span>
   <div class="link-container">
-    <span *ngIf="!authData"><a [routerLink]="['/auth/login']">Login</a></span>
+    <span
+      ><a [routerLink]="'/hotels'" [routerLinkActive]="'active'"
+        >Hotels</a
+      ></span
+    >
     <span *ngIf="!authData"
-      ><a [routerLink]="['/auth/register']">Register</a></span
+      ><a [routerLink]="['/auth/login']" [routerLinkActive]="'active'"
+        >Login</a
+      ></span
+    >
+    <span *ngIf="!authData"
+      ><a [routerLink]="['/auth/register']" [routerLinkActive]="'active'"
+        >Register</a
+      ></span
     >
     <span><a *ngIf="authData" (click)="logout()">Logout</a></span>
   </div>

@@ -1,8 +1,11 @@
 .container {
   width: 100%;
   display: flex;
+  position: sticky;
+  top: 0;
   background-color: rgba(245, 222, 179, 0.301);
   border-bottom: 1px solid rgba(12, 1, 1, 0.219);
+  backdrop-filter: blur(3px);
 }
 .brand {
   font-size: 25px;
@@ -29,7 +32,8 @@
   border: 1px solid brown;
   border-radius: 5px;
 }
-.link-container a:hover {
+.link-container a:hover,
+.active {
   background-color: brown;
-  color: wheat;
+  color: wheat !important;
 }
