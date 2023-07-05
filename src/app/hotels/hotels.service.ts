@@ -10,7 +10,9 @@ export class HotelsService {
   BASE_URL = environment.baseUrl;
   constructor(private http: HttpClient) {}
 
-  getHotels() {
-    return this.http.get<Hotel[]>(`${this.BASE_URL}/hotels`);
+  getHotels(hotel: Partial<Hotel>) {
+    return this.http.get<Hotel[]>(
+      `${this.BASE_URL}/hotels?location=${hotel.location ?? ''}`
+    );
   }
 }

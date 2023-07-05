@@ -12,11 +12,18 @@ export class HotelsComponent implements OnInit {
   hotels: Hotel[] = [];
   constructor(private hotelsService: HotelsService) {}
   ngOnInit(): void {
-    this.getHotels();
+    this.getHotels({});
   }
-  searchHotels(form: NgForm) {}
-  getHotels() {
-    this.hotelsService.getHotels().subscribe({
+  searchHotels({ form }: NgForm) {
+    console.log(form.value);
+
+    const hotel: Partial<Hotel> = {
+      location: form.value.location,
+    };
+    this.getHotels(hotel);
+  }
+  getHotels(hotel: Partial<Hotel>) {
+    this.hotelsService.getHotels(hotel).subscribe({
       next: (hotels) => (this.hotels = hotels),
       error: (err) => console.log(err),
     });
