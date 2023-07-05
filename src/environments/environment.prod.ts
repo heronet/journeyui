@@ -1,5 +1,5 @@
 export const environment = {
-  production: false,
-  baseUrl: 'http://0.0.0.0:5000/api',
-  signalRUrl: 'http://0.0.0.0:5000/hubs',
+  production: true,
+  baseUrl: 'https://journey-t5in5dp7va-uc.a.run.app/api',
+  signalRUrl: 'https://journey-t5in5dp7va-uc.a.run.app/hubs',
 };
