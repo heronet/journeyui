@@ -15,4 +15,7 @@ export class HotelsService {
       `${this.BASE_URL}/hotels?location=${hotel.location ?? ''}`
     );
   }
+  getHotel(id: string) {
+    return this.http.get<Hotel>(`${this.BASE_URL}/hotels/${id}`);
+  }
 }

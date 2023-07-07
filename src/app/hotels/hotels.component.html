@@ -33,6 +33,10 @@
     We've found <span>{{ hotels.length }}</span> hotels for you.
   </p>
   <div class="hotel-list">
-    <app-hotel *ngFor="let hotel of hotels" [hotel]="hotel"></app-hotel>
+    <app-hotel-preview
+      *ngFor="let hotel of hotels"
+      [hotel]="hotel"
+      [routerLink]="[hotel.id]"
+    ></app-hotel-preview>
   </div>
 </div>

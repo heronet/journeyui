@@ -1,1 +1,30 @@
-<p>register works!</p>
+<div class="container">
+  <p class="intro">Set up your Journey ID</p>
+  <form class="form" #f="ngForm" (ngSubmit)="register(f)">
+    <input
+      class="name input-border"
+      type="text"
+      name="name"
+      ngModel
+      placeholder="Name"
+    />
+    <input
+      class="email input-border"
+      type="email"
+      name="email"
+      ngModel
+      placeholder="Email"
+    />
+    <div class="password input-border">
+      <input type="password" name="password" ngModel placeholder="Password" />
+      <button class="btn" type="submit" [disabled]="isLoading">Register</button>
+    </div>
+  </form>
+  <p class="sub">
+    Already a member? <a class="btn" routerLink="/auth/login">Login</a>
+  </p>
+  <div class="empty-loading" *ngIf="isLoading">Please wait...</div>
+  <div class="empty-loading error" *ngFor="let error of errors">
+    {{ error }}
+  </div>
+</div>
