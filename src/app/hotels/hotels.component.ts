@@ -9,6 +9,8 @@ import { HotelsService } from './hotels.service';
   styleUrls: ['./hotels.component.scss'],
 })
 export class HotelsComponent implements OnInit {
+  searchLocation = '';
+  showSearch = false;
   hotels: Hotel[] = [];
   constructor(private hotelsService: HotelsService) {}
   ngOnInit(): void {

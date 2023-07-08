@@ -14,12 +14,18 @@ img {
   object-fit: cover;
 }
 .details {
-  background-color: brown;
+  background-color: transparent;
   padding: 10px;
   display: flex;
-  color: wheat;
+  color: brown;
   font-weight: 600;
-  font-size: 19x;
+  font-size: 19px;
+  border-bottom: 1px solid brown;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.container:hover .details {
+  background-color: brown;
+  color: wheat;
 }
 .details > * {
   display: inline-block;

@@ -25,7 +25,6 @@ export class AuthService {
         map((authData) => {
           if (authData) {
             this.setData(authData);
-            console.log(authData);
           }
         })
       );

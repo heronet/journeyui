@@ -1,33 +1,72 @@
 <div class="container">
-  <div class="card">
-    <form class="form" #f="ngForm">
-      <input
-        class="search"
-        type="text"
-        name="location"
-        ngModel
-        placeholder="Where do you want to stay?"
-      />
-      <!-- <input
-        type="date"
-        name="date"
-        id="date"
-        ngModel
-        #date
-        (click)="date.showPicker()"
-      />
-      <label class="date-label" for="date" (click)="date.showPicker()"
-        >Select Day</label
-      > -->
-      <button
-        class="btn mat-shadow"
-        type="submit"
-        (click)="searchHotels(f)"
-        [disabled]="f.invalid"
-      >
-        Search
-      </button>
-    </form>
+  <div class="hero">
+    <div class="intro">
+      <p class="welc">Let's start</p>
+      <p class="name">Your Journey!</p>
+      <p class="desc">
+        Find hotels from different places for affordable prices with the help of
+        Journey!
+      </p>
+    </div>
+    <div class="card">
+      <!-- <form class="form" >
+          <input
+            class="search"
+            type="text"
+            name="location"
+            ngModel
+            placeholder="Where do you want to stay?"
+          />
+          <input
+            type="date"
+            name="date"
+            id="date"
+            ngModel
+            #date
+            (click)="date.showPicker()"
+          />
+          <label class="date-label" for="date" (click)="date.showPicker()"
+            >Select Day</label
+          >
+          <button
+            class="btn mat-shadow"
+            
+          >
+            Search
+          </button>
+        </form> -->
+      <form class="search-form" #f="ngForm">
+        <div class="location" (click)="showSearch = !showSearch">
+          <label for="">Location </label>
+          <span *ngIf="!searchLocation">Select location</span>
+          <span *ngIf="searchLocation">{{ searchLocation }}</span>
+        </div>
+        <div class="date">
+          <label for="">Check in </label>
+          <span>Select date</span>
+        </div>
+        <div class="date">
+          <label for="">Check out </label>
+          <span>Select location</span>
+        </div>
+        <button type="submit" (click)="searchHotels(f)" [disabled]="f.invalid">
+          Search
+        </button>
+        <section
+          class="mini-input"
+          [ngStyle]="{ display: showSearch ? 'flex' : 'none' }"
+        >
+          <input
+            type="text"
+            name="location"
+            [(ngModel)]="searchLocation"
+            placeholder="Where to?"
+            autocomplete="off"
+          />
+          <button (click)="showSearch = !showSearch">OK</button>
+        </section>
+      </form>
+    </div>
   </div>
   <p class="count">
     We've found <span>{{ hotels.length }}</span> hotels for you.
