@@ -4,19 +4,22 @@
   display: flex;
   flex-direction: column;
   margin: 10px;
-  width: 320px;
+  width: 260px;
   cursor: pointer;
 }
 img {
   width: 100%;
-  height: 250px;
+  height: 240px;
   max-height: 250px;
+  object-fit: cover;
 }
 .details {
   background-color: brown;
   padding: 10px;
   display: flex;
   color: wheat;
+  font-weight: 600;
+  font-size: 19x;
 }
 .details > * {
   display: inline-block;

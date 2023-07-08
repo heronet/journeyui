@@ -5,20 +5,33 @@
   <span style="flex: 1 1 auto"></span>
   <div class="link-container">
     <span
-      ><a [routerLink]="'/hotels'" [routerLinkActive]="'active'"
+      ><a
+        [routerLink]="'/hotels'"
+        [routerLinkActive]="'active'"
+        class="mat-shadow"
         >Hotels</a
       ></span
     >
     <span *ngIf="!authData"
-      ><a [routerLink]="['/auth/login']" [routerLinkActive]="'active'"
+      ><a
+        [routerLink]="['/auth/login']"
+        [routerLinkActive]="'active'"
+        class="mat-shadow"
         >Login</a
       ></span
     >
     <span *ngIf="!authData"
-      ><a [routerLink]="['/auth/register']" [routerLinkActive]="'active'"
+      ><a
+        [routerLink]="['/auth/register']"
+        [routerLinkActive]="'active'"
+        class="mat-shadow"
         >Register</a
       ></span
     >
-    <span><a *ngIf="authData" (click)="logout()">Logout</a></span>
+    <span
+      ><a *ngIf="authData" (click)="logout()" class="mat-shadow"
+        >Logout</a
+      ></span
+    >
   </div>
 </div>
