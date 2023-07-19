@@ -51,12 +51,12 @@
 .selected-category {
   cursor: pointer;
   background-color: var(--blue-dark);
-  color: wheat;
+  color: white;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 .categories > div:hover > span,
 .selected-category > span {
-  color: wheat !important;
+  color: white;
 }
 .categories > div > p {
   margin: 5px;

@@ -9,9 +9,15 @@
       </p>
     </div>
     <div class="card">
-      <form action="" class="search-form">
-        <input type="text" name="" id="" placeholder="Where to?" />
-        <button>Search</button>
+      <form class="search-form" (ngSubmit)="searchHotels(f)" #f="ngForm">
+        <input
+          type="text"
+          name="location"
+          id="location"
+          placeholder="Where to?"
+          ngModel
+        />
+        <button type="submit">Search</button>
       </form>
     </div>
   </div>
