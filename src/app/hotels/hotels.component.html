@@ -9,62 +9,9 @@
       </p>
     </div>
     <div class="card">
-      <!-- <form class="form" >
-          <input
-            class="search"
-            type="text"
-            name="location"
-            ngModel
-            placeholder="Where do you want to stay?"
-          />
-          <input
-            type="date"
-            name="date"
-            id="date"
-            ngModel
-            #date
-            (click)="date.showPicker()"
-          />
-          <label class="date-label" for="date" (click)="date.showPicker()"
-            >Select Day</label
-          >
-          <button
-            class="btn mat-shadow"
-            
-          >
-            Search
-          </button>
-        </form> -->
-      <form class="search-form" #f="ngForm">
-        <div class="location" (click)="showSearch = !showSearch">
-          <label for="">Location </label>
-          <span *ngIf="!searchLocation">Select location</span>
-          <span *ngIf="searchLocation">{{ searchLocation }}</span>
-        </div>
-        <div class="date">
-          <label for="">Check in </label>
-          <span>Select date</span>
-        </div>
-        <div class="date">
-          <label for="">Check out </label>
-          <span>Select location</span>
-        </div>
-        <button type="submit" (click)="searchHotels(f)" [disabled]="f.invalid">
-          Search
-        </button>
-        <section
-          class="mini-input"
-          [ngStyle]="{ display: showSearch ? 'flex' : 'none' }"
-        >
-          <input
-            type="text"
-            name="location"
-            [(ngModel)]="searchLocation"
-            placeholder="Where to?"
-            autocomplete="off"
-          />
-          <button (click)="showSearch = !showSearch">OK</button>
-        </section>
+      <form action="" class="search-form">
+        <input type="text" name="" id="" placeholder="Where to?" />
+        <button>Search</button>
       </form>
     </div>
   </div>

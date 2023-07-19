@@ -1,25 +1,27 @@
 .container {
-  width: 90%;
+  // width: 90%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
+  // margin-top: 2000px;
   margin: 0 auto;
 }
 .hero {
   width: 100%;
+  // min-height: 90%;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  background-image: url("https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress");
+  background-image: url("/assets/bg.svg");
   background-size: cover;
   background-repeat: no-repeat;
-  border-radius: 20px;
+  // border-radius: 20px;
 }
 .intro {
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding: 50px;
 }
 .intro > * {
   text-align: left;
@@ -27,28 +29,29 @@
 .intro > .welc {
   font-size: 2rem;
   font-weight: 600;
-  color: black;
+  color: white;
   margin-bottom: 0;
 }
 .intro > .name {
   font-size: 3rem;
   font-weight: 600;
-  color: brown;
+  color: var(--blue);
   margin: 0;
 }
 .intro > .desc {
   margin: 10px 0;
-  color: rgb(76, 75, 75);
+  color: white;
   font-weight: bold;
 }
 .card {
   border: transparent;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  margin: 30px;
-  width: 80%;
+  margin: 0 50px;
+  margin-bottom: 100px;
+  // width: 80%;
   max-width: 500px;
-  background: brown;
+  background: var(--blue);
 }
 .card > .search-form {
   display: flex;
@@ -56,72 +59,34 @@
   color: wheat;
   position: relative;
 }
-.search-form > div {
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-  position: relative;
-}
-.search-form > div label {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-.search-form > button {
-  background-color: wheat;
-  border: transparent;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  color: brown;
-  font-size: 1rem;
-  padding: 10px 15px;
-  font-size: 1.2rem;
-}
-.search-form > * {
-  cursor: pointer;
-}
-.search-form > .mini-input {
-  display: flex;
-  position: absolute;
-  top: 0;
-}
-.mini-input > button {
-  background-color: wheat;
-  color: brown;
-  cursor: pointer;
-  padding: 5px 10px;
-  border: 1px wheat solid;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  font-family: inherit;
-  font-size: 18px;
-}
-.mini-input > input {
-  display: inline-block;
-  padding: 10px;
+.search-form > input {
+  flex: 1;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   border: transparent;
+  font-size: 1em;
+  padding-left: 5px;
+}
+.search-form > input::placeholder {
+  font-size: 1em;
+  padding-left: 5px;
+}
+.search-form > button {
+  background-color: var(--blue);
+  border: transparent;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
-.date-label {
-  background-color: transparent;
-  color: brown;
-  user-select: none;
-}
-.btn {
-  background-color: brown;
-  color: wheat;
-  cursor: pointer;
-  border: 1px brown solid;
-  border-radius: 5px;
-  padding: 8px 10px;
-  font-family: inherit;
-  font-size: 18px;
-}
 .count {
   font-size: 25px;
   font-weight: 600;
-  color: brown;
+  color: var(--blue);
   margin: 10px 0;
 }
 .count > span {
@@ -136,6 +101,12 @@
   justify-content: center;
 }
 @media (max-width: 680px) {
+  .intro {
+    padding: 100px 20px;
+  }
+  .card {
+    margin: 20px;
+  }
   .card .search-form {
     flex-direction: column;
   }
@@ -143,5 +114,11 @@
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     border-top-right-radius: 0;
+  }
+  .card .search-form > input {
+    padding: 15px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 }

@@ -1,5 +1,5 @@
 .container {
-  border: 1px solid brown;
+  border: 1px solid var(--blue-dark);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -14,17 +14,17 @@ img {
   object-fit: cover;
 }
 .details {
-  background-color: transparent;
+  background-color: var(--blue-dark);
   padding: 10px;
   display: flex;
-  color: brown;
+  color: white;
   font-weight: 600;
   font-size: 19px;
-  border-bottom: 1px solid brown;
+  border-bottom: 1px solid var(--blue-dark);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .container:hover .details {
-  background-color: brown;
+  background-color: var(--blue-dark);
   color: wheat;
 }
 .details > * {

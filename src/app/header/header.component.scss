@@ -3,16 +3,17 @@
   display: flex;
   position: sticky;
   top: 0;
-  background-color: rgba(245, 222, 179, 0.301);
+  background-color: #0d1a2e;
   border-bottom: 1px solid rgba(12, 1, 1, 0.219);
   backdrop-filter: blur(3px);
+  z-index: 999;
 }
 .brand {
   font-size: 25px;
   padding: 10px;
   margin: 5px 15px;
   font-weight: 600;
-  color: brown;
+  color: white;
   cursor: pointer;
   text-decoration: none;
 }
@@ -20,20 +21,21 @@
 .link-container {
   display: flex;
   align-items: center;
+  margin-right: 20px;
 }
 
 .link-container a {
   cursor: pointer;
   text-decoration: none;
-  color: brown;
+  color: white;
   font-size: 20px;
   padding: 5px 10px;
   margin-right: 15px;
-  border: 1px solid brown;
+  border: 1px solid white;
   border-radius: 5px;
 }
 .link-container a:hover,
 .active {
-  background-color: brown;
-  color: wheat !important;
+  background-color: white;
+  color: black !important;
 }
