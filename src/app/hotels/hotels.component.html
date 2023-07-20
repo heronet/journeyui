@@ -21,9 +21,10 @@
       </form>
     </div>
   </div>
-  <p class="count">
+  <p class="count" *ngIf="hotels.length > 0">
     We've found <span>{{ hotels.length }}</span> hotels for you.
   </p>
+  <p class="count" *ngIf="hotels.length == 0">Hotels will appear here</p>
   <div class="hotel-list">
     <app-hotel-preview
       *ngFor="let hotel of hotels"

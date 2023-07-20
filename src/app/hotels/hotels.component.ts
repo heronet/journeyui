@@ -10,15 +10,12 @@ import { HotelsService } from './hotels.service';
 })
 export class HotelsComponent implements OnInit {
   searchLocation = '';
-  showSearch = false;
   hotels: Hotel[] = [];
   constructor(private hotelsService: HotelsService) {}
   ngOnInit(): void {
-    this.getHotels({});
+    // this.getHotels({});
   }
   searchHotels({ form }: NgForm) {
-    console.log(form.value);
-
     const hotel: Partial<Hotel> = {
       location: form.value.location,
     };
