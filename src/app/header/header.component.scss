@@ -11,17 +11,20 @@
 .brand {
   font-size: 25px;
   padding: 10px;
-  margin: 5px 15px;
+  margin: 5px 5px 5px 15px;
   font-weight: 600;
   color: white;
   cursor: pointer;
   text-decoration: none;
 }
+.brand > span {
+  color: var(--blue);
+}
 .brand-container,
 .link-container {
   display: flex;
   align-items: center;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .link-container a {
