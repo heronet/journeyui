@@ -17,17 +17,17 @@
         [routerLink]="['/auth/login']"
         [routerLinkActive]="'active'"
         class="mat-shadow"
-        >Login</a
+        >Get Started</a
       ></span
     >
-    <span *ngIf="!authData"
+    <!-- <span *ngIf="!authData"
       ><a
         [routerLink]="['/auth/register']"
         [routerLinkActive]="'active'"
         class="mat-shadow"
         >Register</a
       ></span
-    >
+    > -->
     <span
       ><a *ngIf="authData" (click)="logout()" class="mat-shadow"
         >Logout</a
