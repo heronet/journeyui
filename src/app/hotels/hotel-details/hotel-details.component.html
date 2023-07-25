@@ -41,16 +41,12 @@
   <div class="details">
     <p class="title">{{ hotel?.title }}, {{ hotel?.location }}</p>
     <p>See location on <a [href]="hotel?.locationOnMap">Google Maps</a></p>
-    <p>Contact: <a href="tel:+8801800000000">+8801800000000</a></p>
+    <p>
+      Contact:
+      <a href="tel:{{ '0' + hotel?.phone }}">{{ "0" + hotel?.phone }}</a>
+    </p>
     <p class="description">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit quibusdam
-      incidunt corporis similique necessitatibus. Esse eligendi eveniet quis
-      corrupti nulla, expedita praesentium, qui quisquam quibusdam suscipit
-      minus cupiditate nam ab. Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Officia corporis optio molestiae et obcaecati quasi ea
-      provident ut? Provident fuga quasi nemo voluptate aliquam odio esse
-      consequatur reiciendis laboriosam dolor.
+      {{ hotel?.description }}
     </p>
   </div>
-  <!-- <div class="purchase">TODO: Purchase Room</div> -->
 </div>

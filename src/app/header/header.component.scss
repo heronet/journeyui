@@ -42,3 +42,8 @@
   background-color: white;
   color: black !important;
 }
+@media (max-width: 680px) {
+  .add {
+    display: none;
+  }
+}

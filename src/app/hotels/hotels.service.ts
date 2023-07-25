@@ -18,4 +18,7 @@ export class HotelsService {
   getHotel(id: string) {
     return this.http.get<Hotel>(`${this.BASE_URL}/hotels/${id}`);
   }
+  addHotel(hotel: Partial<Hotel>) {
+    return this.http.post<Hotel>(`${this.BASE_URL}/hotels`, hotel);
+  }
 }

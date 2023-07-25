@@ -1,0 +1,41 @@
+<div class="container">
+  <div>
+    <span>Add Hotel Details</span>
+    <hr />
+  </div>
+  <form (ngSubmit)="addHotel(f)" #f="ngForm">
+    <input
+      type="text"
+      name="title"
+      id="title"
+      placeholder="Hotel Name"
+      ngModel
+    />
+    <input
+      type="text"
+      name="location"
+      id="location"
+      placeholder="Location"
+      ngModel
+    />
+    <input type="number" name="phone" id="phone" placeholder="Phone" ngModel />
+    <input type="email" name="email" id="email" placeholder="Email" ngModel />
+    <input
+      type="text"
+      name="locationOnMap"
+      id="locationOnMap"
+      placeholder="Google Maps Link"
+      ngModel
+    />
+    <textarea
+      type="text"
+      name="description"
+      id="description"
+      placeholder="Description"
+      ngModel
+    ></textarea>
+    <button type="submit" [disabled]="isLoading">
+      {{ isLoading ? "Please Wait..." : "Save" }}
+    </button>
+  </form>
+</div>

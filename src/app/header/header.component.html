@@ -8,6 +8,7 @@
       ><a
         [routerLink]="'/hotels'"
         [routerLinkActive]="'active'"
+        [routerLinkActiveOptions]="{ exact: true }"
         class="mat-shadow"
         >Hotels</a
       ></span
@@ -20,14 +21,14 @@
         >Get Started</a
       ></span
     >
-    <!-- <span *ngIf="!authData"
+    <span *ngIf="authData"
       ><a
-        [routerLink]="['/auth/register']"
+        [routerLink]="['/hotels/add-hotel']"
         [routerLinkActive]="'active'"
-        class="mat-shadow"
-        >Register</a
+        class="mat-shadow add"
+        >Add Hotel</a
       ></span
-    > -->
+    >
     <span
       ><a *ngIf="authData" (click)="logout()" class="mat-shadow"
         >Logout</a
