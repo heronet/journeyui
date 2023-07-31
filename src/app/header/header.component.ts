@@ -9,11 +9,20 @@ import { AuthDto } from '../auth/authdto';
 })
 export class HeaderComponent implements OnInit {
   authData: AuthDto | undefined = undefined;
+  canAddHotel = false;
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.authService.authData$.subscribe({
-      next: (data) => (this.authData = data),
+      next: (data) => {
+        this.authData = data;
+        if (
+          this.authData?.roles?.some(
+            (x) => x == 'SuperAdmin' || x == 'Admin' || x == 'Moderator'
+          )
+        )
+          this.canAddHotel = true;
+      },
     });
   }
   logout() {

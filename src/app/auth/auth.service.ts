@@ -45,6 +45,7 @@ export class AuthService {
       localStorage.setItem('email', authDto.email);
       localStorage.setItem('id', authDto.id);
       localStorage.setItem('token', authDto.token);
+      localStorage.setItem('roles', JSON.stringify(authDto.roles));
       this.authDataSource.next(authDto);
       this.connectionService.initSignalR(authDto);
     } else this.authDataSource.next(undefined);
@@ -53,7 +54,7 @@ export class AuthService {
     localStorage.removeItem('email');
     localStorage.removeItem('id');
     localStorage.removeItem('token');
-    localStorage.removeItem('userAvatarUrl');
+    localStorage.removeItem('roles');
     this.authDataSource.next(undefined);
     this.connectionService.stopSignalR();
     this.router.navigateByUrl('/');

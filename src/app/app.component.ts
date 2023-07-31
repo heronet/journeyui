@@ -37,8 +37,13 @@ export class AppComponent implements OnInit, OnDestroy {
     let email = localStorage.getItem('email');
     let id = localStorage.getItem('id');
     let token = localStorage.getItem('token');
+    let roles = localStorage.getItem('roles');
+    let rolesOg: string[] = [];
+
+    if (roles && roles !== 'undefined') rolesOg = JSON.parse(roles);
+
     if (email && id && token) {
-      let authDto: AuthDto = { email, id, token };
+      let authDto: AuthDto = { email, id, roles: rolesOg, token };
       this.authService.setData(authDto);
     } else {
       this.authService.setData(undefined);

@@ -21,7 +21,7 @@
         >Get Started</a
       ></span
     >
-    <span *ngIf="authData"
+    <span *ngIf="canAddHotel"
       ><a
         [routerLink]="['/hotels/add-hotel']"
         [routerLinkActive]="'active'"
