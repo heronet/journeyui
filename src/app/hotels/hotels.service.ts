@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Hotel } from '../models/hotel';
 import { HttpClient } from '@angular/common/http';
+import { Rating } from '../models/rating';
 
 @Injectable({
   providedIn: 'root',
@@ -20,5 +21,8 @@ export class HotelsService {
   }
   addHotel(hotel: Partial<Hotel>) {
     return this.http.post<Hotel>(`${this.BASE_URL}/hotels`, hotel);
+  }
+  addRating(rating: Partial<Rating>) {
+    return this.http.post<Rating>(`${this.BASE_URL}/hotels/rate`, rating);
   }
 }

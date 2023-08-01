@@ -1,3 +1,4 @@
+import { Rating } from './rating';
 import { Room } from './room';
 
 export interface Hotel {
@@ -9,4 +10,5 @@ export interface Hotel {
   phone: string;
   email: string;
   rooms: Room[];
+  ratings: Rating[];
 }
