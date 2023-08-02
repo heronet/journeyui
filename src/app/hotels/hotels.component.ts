@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hotel } from '../models/hotel';
 import { HotelsService } from './hotels.service';
 import { districts } from '../utils/utils';
+import { District } from '../models/district';
 
 @Component({
   selector: 'app-hotels',
@@ -18,12 +19,6 @@ export class HotelsComponent implements OnInit {
     // this.getHotels({});
   }
   searchHotels() {
-    if (
-      this.locations.some((l) =>
-        l.name.toLocaleLowerCase().includes(this.searchLocation)
-      )
-    )
-      return;
     const hotel: Partial<Hotel> = {
       location: this.searchLocation,
     };
@@ -35,9 +30,10 @@ export class HotelsComponent implements OnInit {
       error: (err) => console.log(err),
     });
   }
-  onLocationClick(location: string) {
-    this.searchLocation = location;
+  onLocationClick(location: District) {
+    this.searchLocation = location.name;
     this.showLocations = false;
+    this.searchHotels();
   }
   onKeyPress() {
     if (!this.showLocations) this.showLocations = true;

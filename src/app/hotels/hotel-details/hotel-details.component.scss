@@ -100,7 +100,7 @@
 .rating {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
 }
 .rating > p {
   text-align: start;
@@ -123,15 +123,14 @@
 .rate {
   display: flex;
   flex-direction: column;
-  align-items: start;
-  margin-bottom: 20px;
+  align-items: flex-start;
   gap: 10px;
 }
 .rate > form {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   position: relative;
 }
 .rate > form > textarea {
@@ -148,7 +147,9 @@
   box-sizing: border-box;
   resize: vertical;
 }
-
+.spacer {
+  height: 20px;
+}
 .btn {
   border: 1px solid var(--blue);
   padding: 7px 5px;

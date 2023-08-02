@@ -19,12 +19,11 @@
           autocomplete="off"
           (keypress)="onKeyPress()"
           (keydown)="onKeyPress()"
-          (focusout)="showLocations = false"
         />
         <div class="suggest" *ngIf="showLocations">
           <span
             *ngFor="let location of getLocations()"
-            (click)="onLocationClick(location.name)"
+            (click)="onLocationClick(location)"
             >{{ location.name }} ({{ location.bn_name }})</span
           >
         </div>
@@ -33,7 +32,8 @@
     </div>
   </div>
   <p class="count" *ngIf="hotels.length > 0">
-    We've found <span>{{ hotels.length }}</span> hotels for you.
+    We've found <span>{{ hotels.length }}</span>
+    {{ hotels.length > 1 ? "hotels" : "hotel" }} for you.
   </p>
   <p class="count" *ngIf="hotels.length == 0">Hotels will appear here</p>
   <div class="hotel-list">
