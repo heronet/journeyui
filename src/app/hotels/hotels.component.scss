@@ -56,9 +56,32 @@
 .card > .search-form {
   display: flex;
   justify-content: space-between;
-  color: wheat;
+  // color: wheat;
   position: relative;
 }
+.search-form > .suggest {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  top: 50px;
+  // width: 100%;
+  border-radius: 5px;
+
+  span {
+    padding: 10px;
+    margin: 5px;
+    font-size: 18px;
+    color: black;
+    border-radius: 5px;
+  }
+  span:hover {
+    background: var(--blue);
+    cursor: pointer;
+    color: #f1f1f1;
+  }
+}
+
 .search-form > input {
   flex: 1;
   border-top-left-radius: 5px;
@@ -116,9 +139,15 @@
     border-top-right-radius: 0;
   }
   .card .search-form > input {
-    padding: 15px;
+    padding: 10px;
     border-top-right-radius: 5px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+  }
+  .search-form > button {
+    padding: 8px;
+  }
+  .search-form > .suggest {
+    top: 40px;
   }
 }

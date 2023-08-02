@@ -9,14 +9,25 @@
       <p class="desc">সাশ্রয়ী মূল্যে হোটেল খোঁজার একমাত্র ঠিকানা</p>
     </div>
     <div class="card">
-      <form class="search-form" (ngSubmit)="searchHotels(f)" #f="ngForm">
+      <form class="search-form" (ngSubmit)="searchHotels()">
         <input
           type="text"
           name="location"
           id="location"
           placeholder="Where to?"
-          ngModel
+          [(ngModel)]="searchLocation"
+          autocomplete="off"
+          (keypress)="onKeyPress()"
+          (keydown)="onKeyPress()"
+          (focusout)="showLocations = false"
         />
+        <div class="suggest" *ngIf="showLocations">
+          <span
+            *ngFor="let location of getLocations()"
+            (click)="onLocationClick(location.name)"
+            >{{ location.name }} ({{ location.bn_name }})</span
+          >
+        </div>
         <button type="submit">Search</button>
       </form>
     </div>
