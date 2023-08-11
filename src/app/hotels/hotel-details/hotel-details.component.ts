@@ -4,6 +4,7 @@ import { HotelsService } from '../hotels.service';
 import { Hotel } from 'src/app/models/hotel';
 import { NgForm } from '@angular/forms';
 import { Rating } from 'src/app/models/rating';
+import { Photo } from 'src/app/models/photo';
 
 @Component({
   selector: 'app-hotel-details',
@@ -13,8 +14,11 @@ import { Rating } from 'src/app/models/rating';
 export class HotelDetailsComponent implements OnInit {
   hotel: Hotel | undefined;
   addedStars = 1;
+  previewImage: string | undefined;
   rateVisible = false;
   isLoading = false;
+  tempImage =
+    'https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
   constructor(
     private route: ActivatedRoute,
     private hotelsService: HotelsService
@@ -26,6 +30,7 @@ export class HotelDetailsComponent implements OnInit {
         this.hotelsService.getHotel(id).subscribe({
           next: (hotel) => {
             this.hotel = hotel;
+            if (hotel.thumbnailUrl) this.previewImage = hotel.thumbnailUrl;
           },
           error: (err) => console.log(err),
         });
@@ -58,5 +63,8 @@ export class HotelDetailsComponent implements OnInit {
   }
   toggleRateVisible() {
     this.rateVisible = !this.rateVisible;
+  }
+  setPreview(image: Photo) {
+    this.previewImage = image.imageUrl;
   }
 }

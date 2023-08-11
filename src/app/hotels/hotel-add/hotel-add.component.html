@@ -63,7 +63,7 @@
 
     <button class="btn" type="submit" [disabled]="isLoading || f.invalid">
       <span *ngIf="!isLoading">Save</span>
-      <span *ngIf="isLoading">Saving... {{ uploadProgress }}</span>
+      <span *ngIf="isLoading">Saving... {{ uploadProgress }}%</span>
     </button>
   </form>
 </div>

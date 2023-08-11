@@ -10,7 +10,8 @@ export interface Hotel {
   description: string;
   phone: string;
   email: string;
+  thumbnailUrl: string;
   rooms: Room[];
   ratings: Rating[];
-  photos: Photo[];
+  photos?: Photo[];
 }

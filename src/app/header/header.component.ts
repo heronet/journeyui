@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit {
           )
         )
           this.canAddHotel = true;
+        else this.canAddHotel = false;
       },
     });
   }

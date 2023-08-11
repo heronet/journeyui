@@ -1,23 +1,14 @@
 <div class="container" *ngIf="hotel">
   <div class="img-container">
     <div class="img-preview-container">
-      <img
-        src="https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        alt="main-image"
-      />
+      <img [src]="previewImage ?? tempImage" alt="main-image" />
     </div>
     <div class="img-list">
       <img
-        src="https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        alt="main-image"
-      />
-      <img
-        src="https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        alt="main-image"
-      />
-      <img
-        src="https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        alt="main-image"
+        [src]="photo.imageUrl ?? tempImage"
+        [alt]="photo.publicId"
+        *ngFor="let photo of hotel.photos"
+        (click)="setPreview(photo)"
       />
     </div>
   </div>
