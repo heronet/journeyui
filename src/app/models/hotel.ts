@@ -1,3 +1,4 @@
+import { Photo } from './photo';
 import { Rating } from './rating';
 import { Room } from './room';
 
@@ -11,4 +12,5 @@ export interface Hotel {
   email: string;
   rooms: Room[];
   ratings: Rating[];
+  photos: Photo[];
 }

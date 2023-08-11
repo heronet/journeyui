@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 10px;
 }
-div {
+.title {
   width: 100%;
   max-width: 400px;
   margin: 10px auto;
@@ -18,15 +19,41 @@ form {
   max-width: 400px;
 }
 form > input,
-form > textarea,
-form > button {
+form > textarea {
   padding: 10px;
-  margin: 5px;
+  margin: 5px 0;
   border-radius: 5px;
   border: 1px solid var(--blue);
 }
-form > button {
+.btn {
   cursor: pointer;
   color: white;
   background: var(--blue);
+  border-radius: 5px;
+  border: 1px solid var(--blue);
+  padding: 5px 10px;
+  margin: 5px 0;
+}
+.btn-group {
+  display: flex;
+  gap: 5px;
+  .btn {
+    flex: 1;
+  }
+}
+.hidden {
+  display: none;
+}
+.img-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  img {
+    max-width: 200px;
+    border-radius: 5px;
+  }
+}
+.warn {
+  color: crimson;
+  margin-bottom: 5px;
 }

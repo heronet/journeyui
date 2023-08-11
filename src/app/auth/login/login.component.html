@@ -9,7 +9,13 @@
       placeholder="Email"
     />
     <div class="password input-border">
-      <input type="password" name="password" ngModel placeholder="Password" />
+      <input
+        type="password"
+        name="password"
+        autocomplete="off"
+        ngModel
+        placeholder="Password"
+      />
       <button class="btn" type="submit" [disabled]="isLoading">Login</button>
     </div>
   </form>

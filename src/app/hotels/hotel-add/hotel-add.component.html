@@ -1,6 +1,6 @@
 <div class="container">
   <div>
-    <span>Add Hotel Details</span>
+    <span class="title">Add Hotel Details</span>
     <hr />
   </div>
   <form (ngSubmit)="addHotel(f)" #f="ngForm">
@@ -10,6 +10,7 @@
       id="title"
       placeholder="Hotel Name"
       ngModel
+      required
     />
     <input
       type="text"
@@ -17,6 +18,7 @@
       id="location"
       placeholder="Location"
       ngModel
+      required
     />
     <input type="number" name="phone" id="phone" placeholder="Phone" ngModel />
     <input type="email" name="email" id="email" placeholder="Email" ngModel />
@@ -26,6 +28,7 @@
       id="locationOnMap"
       placeholder="Google Maps Link"
       ngModel
+      required
     />
     <textarea
       type="text"
@@ -33,9 +36,34 @@
       id="description"
       placeholder="Description"
       ngModel
+      required
     ></textarea>
-    <button type="submit" [disabled]="isLoading">
-      {{ isLoading ? "Please Wait..." : "Save" }}
+
+    <div [class.hidden]="isLoading">
+      <input
+        type="file"
+        id="files"
+        (change)="handleFileInput()"
+        accept="image/*"
+        multiple
+        hidden
+        #filesInput
+      />
+      <div class="btn-group">
+        <label for="files" class="btn"> Add Pictures </label>
+        <span (click)="clearPictures()" class="btn">Clear Pictures</span>
+      </div>
+    </div>
+    <span class="warn" *ngIf="filesToUpload.length > 3"
+      >You can only add upto 3 images</span
+    >
+    <div *ngIf="imageUrls.length > 0 && !isLoading" class="img-container">
+      <img *ngFor="let imageUrl of imageUrls" [src]="imageUrl" alt="" />
+    </div>
+
+    <button class="btn" type="submit" [disabled]="isLoading || f.invalid">
+      <span *ngIf="!isLoading">Save</span>
+      <span *ngIf="isLoading">Saving... {{ uploadProgress }}</span>
     </button>
   </form>
 </div>
