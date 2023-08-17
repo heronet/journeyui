@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { AuthDto } from '../auth/authdto';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   authData: AuthDto | undefined = undefined;
+  authSub: Subscription = new Subscription();
   canAddHotel = false;
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.authService.authData$.subscribe({
+    this.authSub = this.authService.authData$.subscribe({
       next: (data) => {
         this.authData = data;
         if (
@@ -28,5 +30,8 @@ export class HeaderComponent implements OnInit {
   }
   logout() {
     this.authService.logout();
+  }
+  ngOnDestroy(): void {
+    this.authSub.unsubscribe();
   }
 }

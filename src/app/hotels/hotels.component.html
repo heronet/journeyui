@@ -40,7 +40,9 @@
     <app-hotel-preview
       *ngFor="let hotel of hotels"
       [hotel]="hotel"
-      [routerLink]="[hotel.id]"
+      (deleted)="removeHotel(hotel.id)"
+      [isModifying]="isModifyingHotel"
+      [canModifyHotel]="canModifyHotel"
     ></app-hotel-preview>
   </div>
 </div>

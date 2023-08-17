@@ -12,14 +12,18 @@
       ngModel
       required
     />
-    <input
+    <select
       type="text"
       name="location"
       id="location"
       placeholder="Location"
-      ngModel
       required
-    />
+      [ngModel]="locations[0].name"
+    >
+      <option *ngFor="let location of locations" [value]="location.name">
+        {{ location.name }} ({{ location.bn_name }})
+      </option>
+    </select>
     <input type="number" name="phone" id="phone" placeholder="Phone" ngModel />
     <input type="email" name="email" id="email" placeholder="Email" ngModel />
     <input

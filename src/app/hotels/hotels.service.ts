@@ -43,4 +43,7 @@ export class HotelsService {
   addRating(rating: Partial<Rating>) {
     return this.http.post<Rating>(`${this.BASE_URL}/hotels/rate`, rating);
   }
+  deleteHotel(id: string) {
+    return this.http.delete(`${this.BASE_URL}/hotels/${id}`);
+  }
 }

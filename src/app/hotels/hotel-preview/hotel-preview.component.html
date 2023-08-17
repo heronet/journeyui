@@ -1,11 +1,25 @@
 <div class="container mat-shadow">
-  <div class="details">
+  <div class="details" [routerLink]="[hotel?.id]">
     <span>{{ hotel?.title }}</span>
     <span style="flex: 1 1 auto"></span>
     <span>{{ hotel?.location }}</span>
   </div>
   <img
-    src="https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    [src]="hotel?.thumbnailUrl ?? tempImg"
     alt=""
+    [routerLink]="[hotel?.id]"
   />
+  <ul class="mod" *ngIf="canModifyHotel">
+    <!-- <li class="edit btn mat-shadow">Edit</li> -->
+    <li>
+      <button
+        class="delete btn mat-shadow"
+        type="button"
+        (click)="onDelete()"
+        [disabled]="isModifying"
+      >
+        Delete
+      </button>
+    </li>
+  </ul>
 </div>

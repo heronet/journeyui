@@ -9,6 +9,7 @@ import { NgForm } from '@angular/forms';
 import { HotelsService } from '../hotels.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { districts } from 'src/app/utils/utils';
 
 @Component({
   selector: 'app-hotel-add',
@@ -25,6 +26,7 @@ export class HotelAddComponent implements OnInit, OnDestroy {
   filesToUpload: File[] = [];
   imageUrls: string[] = [];
   initialImage: string | undefined;
+  locations = districts;
   constructor(private hotelsService: HotelsService, private router: Router) {}
 
   ngOnInit(): void {
@@ -36,7 +38,6 @@ export class HotelAddComponent implements OnInit, OnDestroy {
   addHotel(form: NgForm) {
     this.isLoading = true;
     const data = form.value;
-    console.log(data);
 
     if (this.filesToUpload.length > 3) {
       this.clearPictures();
