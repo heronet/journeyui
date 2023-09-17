@@ -169,6 +169,7 @@
   .container {
     grid-template-columns: auto;
     width: 100%;
+    padding: 0;
   }
   .categories {
     margin: 0;
@@ -181,7 +182,7 @@
     padding: 14px;
   }
   .img-container {
-    padding: 10px 0;
+    padding: 10px;
   }
   .img-preview-container > img {
     width: 100%;
