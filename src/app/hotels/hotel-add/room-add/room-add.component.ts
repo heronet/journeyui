@@ -8,7 +8,7 @@ import {
 import { Subscription } from 'rxjs';
 import { HotelsService } from '../../hotels.service';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-room-add',
@@ -29,7 +29,8 @@ export class RoomAddComponent implements OnInit, OnDestroy {
 
   constructor(
     private hotelsService: HotelsService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -58,6 +59,7 @@ export class RoomAddComponent implements OnInit, OnDestroy {
       complete: () => {
         this.isLoading = false;
         this.uploadProgress = 0;
+        this.router.navigateByUrl(`/hotels/${this.hotelId}`);
       },
       error: (err) => {
         this.isLoading = false;

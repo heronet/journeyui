@@ -5,6 +5,7 @@ import { Hotel } from 'src/app/models/hotel';
 import { NgForm } from '@angular/forms';
 import { Rating } from 'src/app/models/rating';
 import { Photo } from 'src/app/models/photo';
+import { Room } from 'src/app/models/room';
 
 @Component({
   selector: 'app-hotel-details',
@@ -13,6 +14,7 @@ import { Photo } from 'src/app/models/photo';
 })
 export class HotelDetailsComponent implements OnInit {
   hotel: Hotel | undefined;
+  selectedRoom: Room | undefined;
   addedStars = 1;
   previewImage: string | undefined;
   rateVisible = false;
@@ -30,8 +32,7 @@ export class HotelDetailsComponent implements OnInit {
         this.hotelsService.getHotel(id).subscribe({
           next: (hotel) => {
             this.hotel = hotel;
-            console.log(hotel);
-
+            this.selectedRoom = hotel.rooms[0];
             if (hotel.thumbnailUrl) this.previewImage = hotel.thumbnailUrl;
           },
           error: (err) => console.log(err),
@@ -68,5 +69,9 @@ export class HotelDetailsComponent implements OnInit {
   }
   setPreview(image: Photo) {
     this.previewImage = image.imageUrl;
+  }
+  selectRoom(room: Room) {
+    this.selectedRoom = room;
+    this.setPreview(room.photos![0]);
   }
 }

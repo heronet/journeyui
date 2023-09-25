@@ -7,26 +7,20 @@
       <img
         [src]="photo.imageUrl ?? tempImage"
         [alt]="photo.publicId"
-        *ngFor="let photo of hotel.rooms[0].photos"
+        *ngFor="let photo of selectedRoom?.photos"
         (click)="setPreview(photo)"
       />
     </div>
   </div>
   <div class="categories">
-    <div>
-      <h3>Economy</h3>
-      <span>1000 Taka</span>
-      <p>Lorem ipsum dolor sit amet</p>
-    </div>
-    <div class="selected-category">
-      <h3>Standard</h3>
-      <span>2000 Taka</span>
-      <p>Lorem ipsum dolor sit amet</p>
-    </div>
-    <div>
-      <h3>Luxery</h3>
-      <span>3000 Taka</span>
-      <p>Lorem ipsum dolor sit amet</p>
+    <div
+      *ngFor="let room of hotel.rooms"
+      [class.selected-category]="selectedRoom?.id === room.id"
+      (click)="selectRoom(room)"
+    >
+      <h3>{{ room.category }}</h3>
+      <span>{{ room.price }} Taka</span>
+      <p>{{ room.description }}</p>
     </div>
   </div>
   <div class="details">
