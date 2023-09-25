@@ -16,4 +16,11 @@ export class HotelPreviewComponent {
   onDelete() {
     this.deleted.emit();
   }
+
+  getThumb() {
+    if (this.hotel?.thumbnailUrl.trim().length) {
+      return this.hotel?.thumbnailUrl;
+    }
+    return this.tempImg;
+  }
 }

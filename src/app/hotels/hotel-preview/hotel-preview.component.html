@@ -4,11 +4,7 @@
     <span style="flex: 1 1 auto"></span>
     <span>{{ hotel?.location }}</span>
   </div>
-  <img
-    [src]="hotel?.thumbnailUrl ?? tempImg"
-    alt=""
-    [routerLink]="[hotel?.id]"
-  />
+  <img [src]="getThumb()" alt="" [routerLink]="[hotel?.id]" />
   <ul class="mod" *ngIf="canModifyHotel">
     <!-- <li class="edit btn mat-shadow">Edit</li> -->
     <li>

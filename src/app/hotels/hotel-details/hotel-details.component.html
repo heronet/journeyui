@@ -7,7 +7,7 @@
       <img
         [src]="photo.imageUrl ?? tempImage"
         [alt]="photo.publicId"
-        *ngFor="let photo of hotel.photos"
+        *ngFor="let photo of hotel.rooms[0].photos"
         (click)="setPreview(photo)"
       />
     </div>
@@ -37,7 +37,7 @@
       <a href="tel:{{ '0' + hotel.phone }}">{{ "0" + hotel.phone }}</a>
     </p>
     <p class="description">
-      {{ hotel.description }}
+      {{ hotel.rooms[0].description }}
     </p>
   </div>
   <div class="details">

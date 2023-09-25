@@ -1,4 +1,3 @@
-import { Photo } from './photo';
 import { Rating } from './rating';
 import { Room } from './room';
 
@@ -7,11 +6,9 @@ export interface Hotel {
   title: string;
   location: string;
   locationOnMap: string;
-  description: string;
   phone: string;
   email: string;
   thumbnailUrl: string;
   rooms: Room[];
   ratings: Rating[];
-  photos?: Photo[];
 }

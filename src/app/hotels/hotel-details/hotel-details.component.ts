@@ -30,6 +30,8 @@ export class HotelDetailsComponent implements OnInit {
         this.hotelsService.getHotel(id).subscribe({
           next: (hotel) => {
             this.hotel = hotel;
+            console.log(hotel);
+
             if (hotel.thumbnailUrl) this.previewImage = hotel.thumbnailUrl;
           },
           error: (err) => console.log(err),

@@ -4,6 +4,7 @@ import { Hotel } from '../models/hotel';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Rating } from '../models/rating';
 import { Subject, map } from 'rxjs';
+import { Room } from '../models/room';
 
 @Injectable({
   providedIn: 'root',
@@ -24,9 +25,12 @@ export class HotelsService {
   getHotel(id: string) {
     return this.http.get<Hotel>(`${this.BASE_URL}/hotels/${id}`);
   }
-  addHotel(hotel: FormData) {
+  addHotel(hotel: Partial<Hotel>) {
+    return this.http.post<Hotel>(`${this.BASE_URL}/hotels`, hotel);
+  }
+  addRoom(room: FormData) {
     return this.http
-      .post<Hotel>(`${this.BASE_URL}/hotels`, hotel, {
+      .post<Room>(`${this.BASE_URL}/hotels/add-room`, room, {
         reportProgress: true,
         observe: 'events',
       })

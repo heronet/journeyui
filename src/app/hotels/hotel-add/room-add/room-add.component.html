@@ -1,0 +1,59 @@
+<div class="container">
+  <div>
+    <span class="title">Add Hotel Rooms</span>
+    <hr />
+  </div>
+  <form (ngSubmit)="addRoom(f)" #f="ngForm">
+    <input
+      type="text"
+      name="category"
+      id="category"
+      placeholder="Category"
+      ngModel
+      required
+    />
+    <input
+      type="number"
+      name="price"
+      id="price"
+      placeholder="Price"
+      ngModel
+      required
+    />
+    <textarea
+      type="text"
+      name="description"
+      id="description"
+      placeholder="Description"
+      ngModel
+      required
+    ></textarea>
+
+    <div [class.hidden]="isLoading">
+      <input
+        type="file"
+        id="files"
+        (change)="handleFileInput()"
+        accept="image/*"
+        multiple
+        hidden
+        #filesInput
+      />
+      <div class="btn-group">
+        <label for="files" class="btn"> Add Pictures </label>
+        <span (click)="clearPictures()" class="btn">Clear Pictures</span>
+      </div>
+    </div>
+    <span class="warn" *ngIf="filesToUpload.length > 3"
+      >You can only add upto 3 images</span
+    >
+    <div *ngIf="imageUrls.length > 0 && !isLoading" class="img-container">
+      <img *ngFor="let imageUrl of imageUrls" [src]="imageUrl" alt="" />
+    </div>
+
+    <button class="btn" type="submit" [disabled]="isLoading || f.invalid">
+      <span *ngIf="!isLoading">Save</span>
+      <span *ngIf="isLoading">Saving... {{ uploadProgress }}%</span>
+    </button>
+  </form>
+</div>
