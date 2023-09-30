@@ -17,9 +17,9 @@ export class HotelsService {
 
   constructor(private http: HttpClient) {}
 
-  getHotels(hotel: Partial<Hotel>) {
+  getHotels(location?: string) {
     return this.http.get<Hotel[]>(
-      `${this.BASE_URL}/hotels?location=${hotel.location ?? ''}`
+      `${this.BASE_URL}/hotels?location=${location ?? ''}`
     );
   }
   getHotel(id: string) {

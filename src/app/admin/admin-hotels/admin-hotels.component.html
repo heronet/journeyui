@@ -1,1 +1,18 @@
-<p>admin-hotels works!</p>
+<div class="container">
+  <span class="title">Dashboard</span>
+
+  <ul class="utils">
+    <li class="mat-shadow">
+      <a [routerLink]="['/hotels/add-hotel']">Add hotel</a>
+    </li>
+  </ul>
+
+  <ul class="hotels">
+    <li class="" *ngFor="let hotel of hotels">
+      <a [routerLink]="['/hotels', hotel.id]">{{ hotel.title }}</a>
+      <div class="btn-gr">
+        <a [routerLink]="['/hotels', hotel.id, 'add-room']">Add Room</a>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -29,13 +29,10 @@ export class HotelsComponent implements OnInit, OnDestroy {
     this.setAccess();
   }
   searchHotels() {
-    const hotel: Partial<Hotel> = {
-      location: this.searchLocation,
-    };
-    this.getHotels(hotel);
+    this.getHotels(this.searchLocation);
   }
-  getHotels(hotel: Partial<Hotel>) {
-    this.hotelsService.getHotels(hotel).subscribe({
+  getHotels(location: string) {
+    this.hotelsService.getHotels(location).subscribe({
       next: (hotels) => (this.hotels = hotels),
       error: (err) => console.log(err),
     });

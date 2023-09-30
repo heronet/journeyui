@@ -21,12 +21,12 @@
         >Get Started</a
       ></span
     >
-    <span *ngIf="canAddHotel"
+    <span *ngIf="isAdmin"
       ><a
-        [routerLink]="['/hotels/add-hotel']"
+        [routerLink]="['/admin']"
         [routerLinkActive]="'active'"
         class="mat-shadow add"
-        >Add Hotel</a
+        >Admin</a
       ></span
     >
     <span

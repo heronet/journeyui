@@ -1,0 +1,8 @@
+<div class="container">
+  <span class="title">Dashboard</span>
+  <ul>
+    <li class="mat-shadow" *ngFor="let link of links">
+      <a [routerLink]="link.url">{{ link.title }}</a>
+    </li>
+  </ul>
+</div>

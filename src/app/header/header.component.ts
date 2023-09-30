@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 export class HeaderComponent implements OnInit, OnDestroy {
   authData: AuthDto | undefined = undefined;
   authSub: Subscription = new Subscription();
-  canAddHotel = false;
+  isAdmin = false;
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
@@ -23,8 +23,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
             (x) => x == 'SuperAdmin' || x == 'Admin' || x == 'Moderator'
           )
         )
-          this.canAddHotel = true;
-        else this.canAddHotel = false;
+          this.isAdmin = true;
+        else this.isAdmin = false;
       },
     });
   }

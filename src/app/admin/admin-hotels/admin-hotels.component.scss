@@ -1,0 +1,51 @@
+.container {
+  max-width: 1024px;
+  margin: 20px;
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    li {
+      border-radius: 5px;
+      padding: 5px;
+    }
+  }
+  .hotels {
+    li {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--blue);
+      a {
+        color: var(--blue);
+      }
+    }
+  }
+
+  .utils {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px solid var(--blue);
+    padding: 5px 0;
+    li {
+      background-color: var(--blue);
+      a {
+        color: white;
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    user-select: none;
+    display: inline-block;
+  }
+}
+.title {
+  width: 100%;
+  max-width: 400px;
+  margin: 10px auto;
+  color: var(--blue);
+  font-size: 1.5rem;
+}
