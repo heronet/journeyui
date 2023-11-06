@@ -4,6 +4,7 @@ import { AuthService } from './auth/auth.service';
 import { AuthDto } from './auth/authdto';
 import { ThemeService } from './theme/theme.service';
 import { ConnectionService } from './connection/connection.service';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -17,10 +18,15 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(
     private authService: AuthService,
     private connectionService: ConnectionService,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private meta: Meta
   ) {}
 
   ngOnInit(): void {
+    this.meta.addTag({
+      name: 'description',
+      content: 'A platform to help you book your next hotel very easily',
+    });
     this.themeSub = this.themeService.theme$.subscribe({
       next: () => this.toggleTheme(),
     });
