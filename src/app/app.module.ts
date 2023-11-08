@@ -8,9 +8,10 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { LogoutInterceptor } from './auth/logout.interceptor';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent],
+  declarations: [AppComponent, HomeComponent, HeaderComponent, ErrorComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [
     {

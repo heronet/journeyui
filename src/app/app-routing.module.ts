@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { authGuard } from './auth/auth.guard';
 import { adminGuard } from './admin/admin.guard';
+import { ErrorComponent } from './error/error.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
     path: '',
     redirectTo: 'hotels',
     pathMatch: 'full',
+  },
+  {
+    path: '**',
+    component: ErrorComponent,
   },
 ];
 
