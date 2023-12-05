@@ -6,6 +6,7 @@ export interface Hotel {
   title: string;
   location: string;
   locationOnMap: string;
+  description: string;
   phone: string;
   email: string;
   thumbnailUrl: string;

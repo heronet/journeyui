@@ -31,6 +31,7 @@ export class HotelAddComponent {
       title: data.title,
       location: data.location,
       locationOnMap: data.locationOnMap,
+      description: data.description,
       phone: data.phone.toString(),
       email: data.email,
     };

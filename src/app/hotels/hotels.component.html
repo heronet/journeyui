@@ -32,7 +32,8 @@
     We've found <span>{{ hotels.length }}</span>
     {{ hotels.length > 1 ? "hotels" : "hotel" }} for you.
   </p>
-  <p class="count" *ngIf="hotels.length == 0">Search hotels...</p>
+  <p class="count" *ngIf="hotels.length == 0 && !isLoading">Search hotels...</p>
+  <p class="count" *ngIf="isLoading">Please Wait...</p>
   <div class="hotel-list">
     <app-hotel-preview
       *ngFor="let hotel of hotels"

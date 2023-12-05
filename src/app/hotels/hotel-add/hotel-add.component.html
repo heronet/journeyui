@@ -34,6 +34,14 @@
       ngModel
       required
     />
+    <textarea
+      type="text"
+      name="description"
+      id="description"
+      placeholder="Description"
+      ngModel
+      required
+    ></textarea>
 
     <button class="btn" type="submit" [disabled]="isLoading || f.invalid">
       <span *ngIf="!isLoading">Save</span>

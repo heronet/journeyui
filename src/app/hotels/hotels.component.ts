@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
 export class HotelsComponent implements OnInit, OnDestroy {
   searchLocation = '';
   showLocations = false;
+  isLoading = false;
   isModifyingHotel = false;
   canModifyHotel = false;
   hotels: Hotel[] = [];
@@ -32,9 +33,16 @@ export class HotelsComponent implements OnInit, OnDestroy {
     this.getHotels(this.searchLocation);
   }
   getHotels(location: string) {
+    this.isLoading = true;
     this.hotelsService.getHotels(location).subscribe({
-      next: (hotels) => (this.hotels = hotels),
-      error: (err) => console.log(err),
+      next: (hotels) => {
+        this.hotels = hotels;
+        this.isLoading = false;
+      },
+      error: (err) => {
+        console.log(err);
+        this.isLoading = false;
+      },
     });
   }
   onLocationClick(location: District) {
