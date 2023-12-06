@@ -19,7 +19,7 @@
       (click)="selectRoom(room)"
     >
       <h3>{{ room.category }}</h3>
-      <span>{{ room.price }} Taka</span>
+      <span>{{ room.price > 0 ? room.price + " Taka" : "Negotiable" }}</span>
       <p>{{ room.description }}</p>
     </div>
   </div>
